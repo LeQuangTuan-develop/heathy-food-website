@@ -1,0 +1,240 @@
+.bg-color-main {
+    background-color: var(--main-bg-color-body);
+}
+.section-main {
+    margin-bottom: 20px;
+}
+.home-banner-top {
+    padding: 20px 0;
+}
+.home-banner-top-aside {
+    padding-left: 0;
+}
+.home-banner-top-aside ul li {
+    margin-bottom: 10px;
+}
+.home-banner-top-aside ul li:last-child {
+    margin-bottom: 0;
+}
+.home-banner-top-aside ul li a img {
+    width: 100%;
+    height: 126px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+.home-banner-middle {
+    background-color: var(--main-bg-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+.home-banner-middle img {
+    width: 100%;
+    max-width: 100%;
+}
+.view-product {
+    background-color: var(--main-color);
+}
+.view-product article {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 16px 0;
+    overflow: hidden;
+}
+.view-product article .transform-text-product {
+    width: 100000px;
+    transform: translateX(1263px);
+    animation: 35.791s linear 1s infinite normal none running
+        marqueeAnimation-1276969;
+}
+.view-product article .transform-text-product .text-product {
+    margin-right: 0px;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.view-product article .transform-text-product .text-product span {
+    margin: 0;
+    padding: 0 48px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: var(--main-bg-color);
+    font-weight: bold;
+    letter-spacing: 0.5;
+}
+@keyframes marqueeAnimation-1276969 {
+    100% {
+        transform: translateX(-2504px);
+    }
+}
+/*for blog*/
+.product-recommend-slide {
+    display: none;
+}
+.product-blog {
+    background-color: var(--main-bg-color);
+    padding-bottom: 30px;
+}
+.product-blog .product-blog-form {
+    margin-right: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ebebeb;
+}
+.product-blog .product-blog-form h3 {
+    text-transform: uppercase;
+    background-color: var(--main-color);
+    color: var(--main-bg-color);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.product-blog .product-blog-form aside {
+    border-right: 1px solid #ebebeb;
+    margin-right: 0;
+    padding-right: 0;
+}
+.product-blog .product-blog-form aside ul li:first-child {
+    padding-top: 12.5px;
+}
+.product-blog .product-blog-form aside ul li {
+    padding: 0 20px 10px 20px;
+}
+.product-blog .product-blog-form aside ul li a {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 14px;
+}
+.product-blog .product-blog-form .product-blog-img-big {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.product-blog-cover:hover img {
+    transform: scale(1.02);
+    transition: all .3s linear;
+    width: 100%;
+    max-width: 100%;
+}
+.product-blog-cover .product-blog-infor {
+    margin-top: 10px;
+}
+.product-blog-cover .product-blog-infor div {
+    display: inline-block;
+    margin-right: 10px;
+}
+.product-blog-cover .product-blog-infor div strong {
+    font-size: 14px;
+}
+.product-blog .product-blog-form .product-blog-second {
+    margin-top: 20px;
+}
+.product-blog .product-blog-form .product-blog-second .blog-second-1:hover img,
+.product-blog .product-blog-form .product-blog-second .blog-second-2:hover img{
+    transform: scale(1.02);
+    transition: all .3s linear;
+    width: 100%;
+    max-width: 100%;
+}
+.product-blog .product-blog-form .product-blog-second img {
+    margin-bottom: 10px;
+}
+.product-blog .product-blog-form .product-blog-second a:last-child {
+    margin-top: 20px;
+    display: block;
+}
+.product-blog .product-blog-form .product-blog-third {
+    margin-top: 20px;
+    margin-left: 0;
+    padding-left: 0;
+}
+.product-blog .product-blog-form .product-blog-third a:hover img {
+    transform: scale(1.02);
+    transition: all .3s linear;
+}
+.product-blog .product-blog-form .product-blog-third a {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.product-blog .product-blog-form .product-blog-third a img {
+    display: inline-block; 
+    width: 40%;
+}
+.product-blog .product-blog-form .product-blog-third a strong {
+}
+#splide-product-blog-list .splide__pagination {
+    display: none;
+}
+.load-more-product-recommend-slide-btn {
+    border: none;
+    background-color: transparent;
+    color: var(--color-grey);
+    cursor: pointer;
+}
+.load-more-product-recommend-slide-btn:hover {
+    color: var(--color-black);
+    transition: all .4s;
+
+}
+.margin-right-fix-sp {
+    margin-right: 20px;
+}
+/*for responsive*/
+@media screen and (max-width: 1200px) {
+    .home-banner-top-aside ul {
+        background-color: var(--main-bg-color);
+        margin: 20px 0 20px 15px;
+        padding-left: 10px;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .home-banner-top-aside ul li {
+        padding: 10px 0 0 0;
+        flex: 32%;
+    }
+    .home-banner-top-aside ul li:last-child {
+        padding-right: 10px;
+    }
+    .product-blog .product-blog-form .product-blog-cover {
+        display: block;
+    }
+    .product-blog .product-blog-form .product-blog-second {
+        padding-left: 22px;
+        display: flex;
+        align-items: center;
+    }
+    .product-blog .product-blog-form .product-blog-second .blog-second-1 {
+        padding-right: 10px;
+    }
+    .product-blog .product-blog-form .product-blog-second a:last-child {
+        margin-top:  0;
+    }
+}
+@media screen and (max-width: 992px) {
+    .margin-right-fix-sp {
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .product-blog .product-blog-form h3 {
+        font-size: 16px;
+    }
+    .product-blog .product-blog-form .product-blog-third {
+        padding-left: 22px;
+    }
+}
+@media screen and (max-width: 576px) { 
+    .product-blog .product-blog-form .product-blog-cover {
+        margin-left: 7px;
+    }
+}
+@media screen and (max-width: 540px) {
+    .home-banner-top-aside ul li:nth-child(2) {
+        padding-right: 10px;
+    }
+    .home-banner-top-aside ul li:last-child {
+        padding-top: 0;
+        padding-bottom: 10px;
+    }
+} 

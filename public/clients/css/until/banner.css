@@ -1,0 +1,45 @@
+
+#carouselExampleIndicators.home-banner-top-slide .carousel-indicators li {
+    font-size: 0;
+    line-height: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    display: inline-block;
+    background-color: rgba(255,255,255,.6);
+    margin: 0 5px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+#carouselExampleIndicators.home-banner-top-slide .carousel-indicators .active {
+    width: 35px;
+    transition: all .3s ease;
+    background-color: #FFF;
+}
+#carouselExampleIndicators.home-banner-top-slide img {
+    height: 400px;
+    width: 100%;
+    border-radius: 5px;
+}
+#carouselExampleIndicators.home-banner-top-slide .btn-slide-effect span {
+    background-image: unset;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+#carouselExampleIndicators.home-banner-top-slide .btn-slide-effect:hover span {
+    background-color: var(--main-color);
+    transition: all .4s;
+}
+#carouselExampleIndicators.home-banner-top-slide .btn-slide-effect.previous-slide-effect:hover span {
+    margin-right: 20px;
+}
+#carouselExampleIndicators.home-banner-top-slide .btn-slide-effect.next-slide-effect:hover span {
+    margin-left: 20px;
+}
+

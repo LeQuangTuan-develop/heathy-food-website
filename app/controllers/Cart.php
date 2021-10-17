@@ -5,7 +5,6 @@ use function PHPSTORM_META\map;
 class Cart extends Controller
 {
 
-
     public $request, $response;
     public $productModel;
     public $voucherModel;
@@ -27,7 +26,39 @@ class Cart extends Controller
 
     public function index()
     {
-      
+        $data['content'] = 'clients.cart.cart';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Giỏ hàng của bạn";
+
+        $data['libraryCSS']['list_css'] = $this->loadLibCSS();
+
+        $data['data_js'] = [
+            'cart'     => 'clients.cart.js_cart'
+        ];
+
+        return $this->view('layouts.client_layout_new', $data);
+    }
+
+    public function checkout()
+    {
+        $data['content'] = 'clients.cart.checkout_new';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Thanh toán";
+
+        $data['libraryCSS']['list_css'] = $this->loadLibCSS();
+
+        $data['data_js'] = [
+            'js_checkout' => 'clients.cart.js_checkout_new'
+        ];
+        return $this->view('layouts.client_layout_new', $data);
+    }
+
+    public function index1()
+    {
         $data['content'] = 'clients.cart.index';
         $data['page_title'] = "Giỏ hàng của bạn";
         $data['sub_content']['product'] = Session::data('cart') ?? NULL;
@@ -59,10 +90,10 @@ class Cart extends Controller
         }
         $user = Session::data('user_data') ?? null;
         $user_id = $user['id_user'] ?? null;
-        $customer = $this->customerModel->findByField(['id :'.$user_id])[0] ?? null;
-        if(!empty($customer)){
+        $customer = $this->customerModel->findByField(['id :' . $user_id])[0] ?? null;
+        if (!empty($customer)) {
             $street = explode(',', trim($customer['shipping_address']), -3)[0] ?? null;
-    
+
             $customer_address_info = [
                 'ward_id'     => $customer['ward_id'],
                 'district_id' => $customer['district_id'],
@@ -70,19 +101,16 @@ class Cart extends Controller
                 'address'     => $customer['shipping_address'],
                 'street'      => $street
             ];
-            if(array_search(NULL, $customer_address_info) !== true){
+            if (array_search(NULL, $customer_address_info) !== true) {
                 $data['sub_content']['customer_address_info'] = $customer_address_info;
             }
         }
-        if(!empty(Session::data('sub_total'))){
+        if (!empty(Session::data('sub_total'))) {
             $data['sub_content']['sub_total'] = (Session::data('sub_total') ?? null);
             $data['sub_content']['amount']    = (Session::data('sub_total') ?? null) - (Session::data('total') ?? null);
         }
-        
-   
-        
-        $data['sub_content']['address_id'] = Session::data('address_code') ?? null; 
-        
+
+        $data['sub_content']['address_id'] = Session::data('address_code') ?? null;
 
         $data['data_js'] = [
             'js'       => 'clients.cart.js_deli',
@@ -99,10 +127,10 @@ class Cart extends Controller
 
     public function store($id)
     {
-        if(Session::data('user_login') == false){
+        if (Session::data('user_login') == false) {
             $message = [
                 "status"   => 1,
-                "location" => _WEB_ROOT.'/dang-nhap',
+                "location" => _WEB_ROOT . '/dang-nhap',
                 "time"     => 700
             ];
             exit(json_encode($message));
@@ -128,9 +156,8 @@ class Cart extends Controller
             }
         }
 
-
         $dataFields = $this->request->getFields();
-       
+
 
         if (!empty($dataFields['qty'])) {
             if (!empty($data[$id])) {
@@ -168,8 +195,8 @@ class Cart extends Controller
     public function getShippingFee()
     {
         $dataFields = $this->request->getFields();
-        
-        if(array_search('',$dataFields) >= 1){
+
+        if (array_search('', $dataFields) >= 1) {
             $message = [
                 "status" => "0",
                 'message' => "Vui lòng điền đầy đủ thông tin"
@@ -178,7 +205,7 @@ class Cart extends Controller
         }
         $check_street = $dataFields['street'];
         $check_street = explode(' ', $check_street);
-        if(count($check_street) == 1){
+        if (count($check_street) == 1) {
             $message = [
                 "status" => "0",
                 'message' => "Vui lòng điền đầy đủ số nhà hoặc tên đường"
@@ -194,10 +221,7 @@ class Cart extends Controller
             'street'   => $dataFields['street'],
             'address'  => $dataFields['address']
         ]);
-      
     }
-
-
 
     public function handlingDeliveryFee($array)
     {
@@ -252,7 +276,7 @@ class Cart extends Controller
             for ($i = 1; $i < count($newArray); $i++) {
                 $total = $newArray[$i]['area'];
                 if ($newArray[0]['area'] > $total) {
-                    if($i + 1 < count($newArray)){
+                    if ($i + 1 < count($newArray)) {
                         $total += $newArray[++$i]['area'];
                     }
                 } else {
@@ -287,11 +311,12 @@ class Cart extends Controller
         }
         Session::data('total', $total);
     }
+
     public function update()
     {
         $cart = Session::data('cart');
         $dataFields = $this->request->getFields();
-        
+
         foreach ($dataFields['data'] as $product) {
             $cart[$product['product_id']]['qty'] = $product['qty'];
 
@@ -301,7 +326,7 @@ class Cart extends Controller
 
         $message = [
             "status"   => 1,
-            "location" => _WEB_ROOT.'/gio-hang',
+            "location" => _WEB_ROOT . '/gio-hang',
             "time"     => 0
         ];
         exit(json_encode($message));
@@ -420,7 +445,7 @@ class Cart extends Controller
                 $sub_total =  Session::data('total') ?? 0;
                 $price_vc = $sub_total - $voucher_price;
                 $total = $voucher_price + $fee;
-                if(!empty($voucher_price)){
+                if (!empty($voucher_price)) {
                     Session::data('sub_total', $sub_total);
                     Session::data('total', Session::data('total_after_voucher'));
                 }
@@ -475,11 +500,11 @@ class Cart extends Controller
         $output .= '</tbody>';
         return $output;
     }
+
     public function loadPrice()
     {
         $output = '';
     }
-
 
     public function deleteVoucher()
     {
@@ -508,7 +533,7 @@ class Cart extends Controller
         exit(json_encode($message));
     }
 
-    public function checkout()
+    public function checkout1()
     {
         if (empty(Session::data('checkout'))) {
             App::$app->loadError('404');
@@ -580,10 +605,10 @@ class Cart extends Controller
                     'date_allocated' => ''
                 ]);
             }
-            
+
             $data_address = Session::data('address_code') ?? null;
 
-            $this->customerModel->edit($user['id_user'],[
+            $this->customerModel->edit($user['id_user'], [
                 'ward_id'     =>      $data_address['ward'],
                 'district_id' =>      $data_address['district'],
                 'province_id' =>      $data_address['province'],
@@ -600,7 +625,7 @@ class Cart extends Controller
         $data['sub_content']['price'] = Session::data('total_after_price') ? (Session::data('total_after_price') + Session::data('shipping_fee')) : (Session::data('total') + Session::data('shipping_fee'));
         return $this->view('layouts.payment_layout', $data);
     }
-    
+
     public function createPayment()
     {
         $dataFields = $this->request->getFields();
@@ -720,7 +745,7 @@ class Cart extends Controller
                 ]);
             }
             $data_address = Session::data('address_code') ?? null;
-            $this->customerModel->edit($user['id_user'],[
+            $this->customerModel->edit($user['id_user'], [
                 'ward_id'     => $data_address['ward'],
                 'district_id' => $data_address['district'],
                 'province_id' => $data_address['province'],
@@ -814,16 +839,17 @@ class Cart extends Controller
             $data['sub_content']['price'] = Session::data('total') ?? null;
             $data['sub_content']['total_after_voucher'] = Session::data('total_after_voucher') ?? null;
             $data['sub_content']['ship'] = Session::data('shipping_fee') ?? null;
-            if(!empty(Session::data('sub_total'))){
+            if (!empty(Session::data('sub_total'))) {
                 $data['sub_content']['amount']  = (Session::data('sub_total') ?? null) - (Session::data('total') ?? null);
             }
             return $this->view('layouts.payment_layout', $data);
         }
     }
 
-
-
-
+    public function loadTitle()
+    {
+        return $page_title = "Giỏ hàng của bạn";
+    }
 
     public function loadMetaTag()
     {
@@ -840,14 +866,14 @@ class Cart extends Controller
     public function loadLibCSS()
     {
         return $list_css = [
-            'bootstrap' => 'bootstrap.css'
+            'cart' => 'pages/cart.css'
         ];
     }
 
     public function loadLibJS()
     {
         return $list_js = [
-            'jquery' => 'jquery.js'
+            // 'cart' => 'pages/cart.js'
         ];
     }
 }

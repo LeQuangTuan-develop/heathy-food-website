@@ -7,7 +7,7 @@ $config['app'] = [
     ],
     'globalMiddleware' => [
         ParamsMiddleware::class,
-        VerifyCsrfToken::class,
+        // VerifyCsrfToken::class,
         LoginMiddleware::class,
     ],
     'routeAdminMiddleware' => [

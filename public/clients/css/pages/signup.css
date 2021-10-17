@@ -1,0 +1,428 @@
+:root {
+    --main-color: #28a745;
+    --main-color-support: #218838;
+    --main-color-2: #FFBE00;
+    --main-bg-color-body: #eeeeee;
+    --main-bg-color: #fff;
+    --color-red: #df3b3b;
+    --color-black: #000;
+    --color-blue: #007bff;
+    --color-login: #56b592;
+    --color-grey: rgba(0,0,0,.6);
+    --color-grey-2: rgb(94 88 88 / 60%);
+    --color-grey-3: rgb(63 62 62);
+    --header-blog-color: rgba(255, 255, 255, 0.9);
+    --box-shadow-primary: 0 0 3px rgba(0,0,0,0.4); 
+}
+.container__signup {
+    background-image: url(../../image/login/signup33.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+.show-pass-primary {
+    display: none;
+}
+body a {
+    color: inherit;
+    text-decoration: none;
+}
+h1 {
+    margin-bottom: 20px;
+}
+h1 a:hover {
+    color: var(--main-color);
+    transition: all .4s;
+}
+.button-primary {
+    background-color: var(--color-login);
+    color: #fff;
+    border: 1px solid var(--color-login);
+}
+.button-primary:hover {
+    cursor: pointer;
+    transition: all .4s;
+    background-color: #4da885;
+}
+.animate-progress {
+    transition: width .5s ease-out;
+}
+.header {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+.content__inner {
+    padding-top: 80px;
+}
+.form-signup-cover {
+    /*border: 1px solid #666;*/
+    width: 40%;
+    margin-left: 7.5%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0px rgb(50 50 50 / 52%);
+}
+#number_check {
+    font-size: 40px;
+    font-size: 40px;
+    border: none;
+    text-align: center;
+    color: #757474;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+.success-icon-primary i {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 40px;
+    border: 3px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 50%;
+    margin-top: 10px;
+}
+.status-success {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+.content__title {
+    margin-bottom: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+.content__title--m-sm {
+    margin-bottom: 10px;
+}
+.multisteps-form__progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    margin-top: 10px;
+}
+.multisteps-form__progress-btn {
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    position: relative;
+    padding-top: 20px;
+    color: rgba(108, 117, 125, 0.7);
+    text-indent: -9999px;
+    border: none;
+    background-color: transparent;
+    outline: none !important;
+    cursor: pointer;
+}
+@media (min-width: 500px) {
+    .multisteps-form__progress-btn {
+        text-indent: 0;
+    }
+}
+.multisteps-form__progress-btn:before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 13px;
+    height: 13px;
+    content: '';
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 3;
+}
+.multisteps-form__progress-btn:after {
+    position: absolute;
+    top: 5px;
+    left: calc(-50% - 13px / 2);
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    display: block;
+    width: 100%;
+    height: 3px;
+    content: '';
+    background-color: currentColor;
+    z-index: 1;
+}
+.multisteps-form__progress-btn:first-child:after {
+    display: none;
+}
+.multisteps-form__progress-btn.js-active {
+    color: var(--color-login);
+}
+.multisteps-form__progress-btn.js-active:before {
+    -webkit-transform: translateX(-50%) scale(1.2);
+    transform: translateX(-50%) scale(1.2);
+    background-color: currentColor;
+}
+.multisteps-form__form {
+    position: relative;
+    height: 350px!important;
+    width: 360px;
+    margin: 0 auto;
+}
+.input-group-text:hover {
+    background-color: #cdcdcd;
+    transition: all .4s;
+    cursor: pointer;
+}
+.multisteps-form__panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+.multisteps-form__panel.js-active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+}
+.multisteps-form__panel[data-animation="scaleOut"] {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.multisteps-form__panel[data-animation="scaleOut"].js-active {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.multisteps-form__panel[data-animation="slideHorz"] {
+    left: 50px;
+}
+.multisteps-form__panel[data-animation="slideHorz"].js-active {
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+    transition-delay: 0s;
+    left: 0;
+}
+.multisteps-form__panel[data-animation="slideVert"] {
+    top: 30px;
+}
+.multisteps-form__panel[data-animation="slideVert"].js-active {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    top: 0;
+}
+.multisteps-form__panel[data-animation="fadeIn"].js-active {
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+.multisteps-form__panel[data-animation="scaleIn"] {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+.multisteps-form__panel[data-animation="scaleIn"].js-active {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+/*for signup phone*/
+.signup_phone-cover {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+.signup_phone-cover .signup_phone-form {
+    position: absolute;
+    left: 13%;
+    top: 10%;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0px rgb(50 50 50 / 52%);
+}
+.signup_phone-cover .signup_phone-form .signup_phone-number {
+    margin-bottom: 20px;
+}
+.signup_phone-cover .signup_phone-form .signup_phone-number input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 3px solid #d3d3d3;
+}
+.signup_phone-cover .signup_phone-form .signup_phone-social-list a {
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    display: block;
+}
+.signup_phone-cover .signup_phone-form .signup_phone-social-list a:last-child{
+    background-color: #0065F7;
+}
+.signup_phone-cover .signup_phone-form .signup_phone-social-list a:last-child:hover {
+    background-color: #1c74ef;
+}
+.signup_phone-cover .signup_phone-form .signup_phone-social-list a i {
+    margin-right: 10px;
+}
+.signup_phone-cover .signup_phone-form .signup_phone-flag {
+    color: rgb(32 31 31 / 69%);
+}
+.signup_phone-cover .signup_phone-form .signup_phone-flag a {
+    text-decoration: underline;
+}
+/*for login*/
+.container__login {
+    background-image: url(../../image/login/login33.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+.container__login .login_phone-cover {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+.container__login .login_phone-cover .login_phone-form {
+    position: absolute;
+    right: 13%;
+    top: 20%;
+    padding: 40px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0px rgb(50 50 50 / 52%);
+}
+.container__login .login_phone-cover .login_phone-form h1 {
+    font-size: 28px;
+}
+.container__login .login-agent-fill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 20px 0;
+}
+.container__login .login-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.container__login .login-social a {
+    border-radius: 5px;
+}
+.container__login .login-social a i {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.container__login .login-social a:nth-child(2){
+    margin: 0 10px;
+}
+.container__login .login-social a:last-child i {
+    padding: 15px 15px;
+}
+span.input-group-text i.icon-pass-primary {
+    font-size: 20px;
+}
+/*for responsive*/
+@media screen and (min-width: 1200px) and (max-width: 1331px) {
+    .container__signup {
+        height: 120%;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .container__signup {
+        height: 120%;
+    }
+    .content__inner {
+        padding-top: 60px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .form-signup-cover {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    .form-signup-cover {
+        width: 60%;
+    }
+    button {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 655px) {
+    .multisteps-form__form {
+        width: 315px;
+    }
+    .form-signup-cover {
+        margin: 0 auto;
+        width: 70%;
+    }
+    #number_check {
+        font-size: 26px;
+    }
+    .signup_phone-cover .signup_phone-form {
+        position: static;
+        height: 100%;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 576px) {
+    #number_check {
+        font-size: 22px;
+    }
+    .container__login .login_phone-cover .login_phone-form {
+        position: static;
+        width: auto;
+        height: 100%;
+    }
+    .container__signup {
+        height: 100%;
+    }
+    .form-signup-cover .responsive-signup-cover-fix {
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+@media screen and (max-width: 450px) {
+    .multisteps-form__form {
+        width: 250px;
+    }
+}

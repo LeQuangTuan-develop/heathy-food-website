@@ -10,7 +10,23 @@ class Customer extends Controller{
         $this->response = new Response();
     }
 
-    public function index()
+    public function index(){
+        $data['content'] = 'clients.customers.customer';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Khách hàng";
+
+        $data['libraryCSS']['list_css'] = $this->loadLibCSS();
+
+        $data['data_js'] = [
+            'cart'     => 'clients.customers.js_customer'
+        ];
+
+        return $this->view('layouts.client_layout_new', $data);
+    }
+
+    public function index1()
     {
         $data['content'] = 'clients.customers.index';
 
@@ -294,8 +310,7 @@ class Customer extends Controller{
                 // 'attachments' => [ 'file' => 'public/uploads/customer/'.$user['avatar'] ]
             ];
 
-            $mailer->sendMail($user['email'], $user['fullname'], $data);
-            
+            $mailer->sendMail($user['email'], $user['fullname'], $data);            
 
             if ($mailer) {
                 Session::data('resetPassCode', $random);
@@ -591,7 +606,7 @@ class Customer extends Controller{
     public function loadLibCSS()
     {
         return $list_css = [
-            'bootstrap' => 'bootstrap.css'
+            'product' => 'pages/product.css'
         ];  
     }
 

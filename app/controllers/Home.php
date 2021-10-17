@@ -20,8 +20,23 @@ class Home extends Controller{
         $this->response = new Response();
     }
 
-    public function index()
-    {
+    public function index() {
+        $data['content'] = 'clients.index_new';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = $this->loadTitle();
+
+        $data['libraryCSS']['list_css'] = $this->loadLibCSS();
+
+        $data['data_js'] = [
+            'home'     => 'clients.home'
+        ];
+
+        return $this->view('layouts.client_layout_new', $data);
+    }
+
+    public function index1() {
         // truy vấn danh mục sản phẩm
         $random = mt_rand(0,3);
         $data['sub_content']['list_categories'] = $this->productCategoryModel->findByField([], '', "6:$random");
@@ -155,7 +170,7 @@ class Home extends Controller{
     public function loadLibCSS()
     {
         return $list_css = [
-            'bootstrap' => 'bootstrap.css'
+            'home' => '/pages/home.css'
         ];  
     }
 

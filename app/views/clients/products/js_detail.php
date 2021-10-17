@@ -115,7 +115,6 @@
 
 	function addToCart(id) {
 		const _token = $('meta[name=csrf-token]').attr("content");
-		console.log(1);
 		var url = "{{_WEB_ROOT.'/them-gio-hang/id-'}}" + id;
 		qty = 1;
 		const form = new FormData();

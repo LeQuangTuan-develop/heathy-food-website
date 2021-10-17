@@ -1,0 +1,92 @@
+h3 {
+    font-size: 20px;
+}
+.header-menu .header-bg-support {
+    background-color: var(--main-color-support);
+}
+.header-menu .header-bg-support-2 {
+    background-color: var(--main-color);
+}
+.header-menu .header-menu-top {
+    background-color: var(--main-color-support);
+    border-bottom: none;
+}
+.header-menu .header-menu-top .header-menu-top-social ul li a {
+    color: #fff;
+}
+.header-menu .header-menu-top .header-menu-top-social ul li a:hover i{
+    color: var(--main-color-2);
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item.header-contact-sale {
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item:hover {
+    color: var(--main-color-2);
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item .header-contact-item {
+    color: #fff;
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item:hover .header-contact-item {
+    color: var(--main-color-2);
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item .header-login {
+    border-right: 1px solid rgb(255 255 255 / 90%);
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item.header-contact-user > i {
+    color: #fff;
+}
+.header-menu .header-menu-top .header-menu-top-contact .header-menu-top-contact-item.header-contact-user:hover > i {
+    color: var(--main-color-2);
+}
+
+/*end for header top menu*/
+/*-----------------------*/
+/*for header main menu*/
+.header-menu .header-menu-main {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.header-menu .header-menu-main .menu-main-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.header-menu .header-menu-main .menu-main-item .header-logo h1 {
+    color: #fff;
+}
+.header-menu .header-menu-main .menu-main-item .header-cate nav:hover {
+    color: var(--main-color-2);
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item:hover {
+    background-color: var(--main-color);
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item:hover:after {
+    border-left: 26px solid #28a745;
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item:hover > a {
+    color: #fff;
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item i {
+    color: #b2b2b2;
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item > a {
+    color: rgb(68,68,68);
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item .cate-lv-2-cover .cate-lv-2-item > a {
+    color: #212529;
+}
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item .cate-lv-2-cover .cate-lv-2-item:hover > a {
+    color: var(--main-color);
+}
+
+.header-menu .header-menu-main .menu-main-item .header-cate .cate-lv-1 .cate-lv-1-item .cate-lv-2-cover .cate-lv-2-item .product-cate-item li:hover a {
+    color: var(--main-color);
+}
+.header-menu .header-menu-main .menu-main-item .header-wish-list a {
+    color: #fff;
+}
+.header-menu .header-menu-main .menu-main-item .header-wish-list:hover i, .header-menu .header-menu-main .menu-main-item .header-wish-list:hover a {
+    color: var(--main-color-2);
+}
+.header-menu .header-menu-main .menu-main-item .header-cart:hover .cart-name {
+   color: var(--main-color-2);
+}

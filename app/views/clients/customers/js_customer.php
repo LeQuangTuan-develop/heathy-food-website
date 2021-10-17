@@ -1,0 +1,1 @@
+<script src="{{ _WEB_ROOT }}/public/clients/js/pages/user.js"></script>
